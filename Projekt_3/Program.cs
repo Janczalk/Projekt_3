@@ -14,6 +14,7 @@ namespace Projekt_3
 {
     class Program
     {
+        // projekt 3
         // tworzenie tablic
         public static Stopwatch stoperek = new Stopwatch();
         private static int[] Randomowa(int size)
@@ -61,64 +62,90 @@ namespace Projekt_3
 
             return array;
         }
-        
+
         // sortowanko
 
-        static void Koktajlowe (int[] tablica)
+        static void SortowankoHeap(int[] tab)
         {
-            bool swapped = true;
-            uint start = 0;
-            int end = tablica.Length;
-
-            while (swapped == true)
+            int left = tab.Length / 2;
+            int right = tab.Length - 1;
+            while (left > 0)
             {
-                swapped = false;
-                for (uint i = start; i < end - 1; ++i )
-                {
-                    if(tablica[i] > tablica [i+1])
-                    {
-                        int temp = tablica[i];
-                        tablica[i] = tablica[i + 1];
-                        tablica[i + 1] = temp;
-                        swapped = true;
-                    }
-                }
+                left--;
+                heapSort(ref tab, left, right);
+            }
 
-                if (swapped == false)
-                    break;
-
-                swapped = false;
-                end = end - 1;
-
-                for(int i = end - 1; i >= start; i--)
-                {
-                    if(tablica[i]>tablica[i+1])
-                    {
-                        int temp = tablica[i];
-                        tablica[i] = tablica[i + 1];
-                        tablica[i + 1] = temp;
-                        swapped = true;
-                    }
-                }
-
-                start = start + 1;
+            while (right > 0)
+            {
+                int temp = tab[left];
+                tab[left] = tab[right];
+                tab[right] = temp;
+                right--;
+                heapSort(ref tab, left, right);
             }
         }
 
-        static void PrzezWstawianie(int[] tablica)
+        static void heapSort(ref int[] tab, int left, int right)
         {
-            for(uint i = 1; i < tablica.Length; i++)
+            int i = left,
+                j = 2 * i + 1;
+            int temp = tab[i];
+            while (j <= right)
+            {
+                if (j < right)
+                    if (tab[j] < tab[j + 1])
+                        j++;
+                if (temp >= tab[j]) break;
+                tab[i] = tab[j];
+                i = j;
+                j = 2 * i + 1;
+            }
+
+            tab[i] = temp;
+        }
+
+        static void Koktajlowe(int[] tab)
+        {
+            int left = 1, right = tab.Length - 1, k = tab.Length - 1;
+            do
+            {
+                for (int j = right; j >= left; j--)
+                    if (tab[j - 1] > tab[j])
+                    {
+                        int temp = tab[j - 1];
+                        tab[j - 1] = tab[j];
+                        tab[j] = temp;
+                        k = j;
+                    }
+
+                left = k + 1;
+                for (int j = left; j <= right; j++)
+                    if (tab[j - 1] > tab[j])
+                    {
+                        int temp = tab[j - 1];
+                        tab[j - 1] = tab[j];
+                        tab[j] = temp;
+                        k = j;
+                    }
+
+                right = k - 1;
+            } while (left <= right);
+        }
+
+        static void Wstawianie(int[] tab)
+        {
+            for (uint i = 1; i < tab.Length; i++)
             {
                 uint j = i;
-                int temp = tablica[j];
-
-                while((j>0)&&(tablica[j-1]>temp))
+                int temp = tab[j];
+                while ((j > 0) && (tab[j - 1] > temp))
                 {
-                    tablica[j] = tablica[j - 1];
+                    tab[j] = tab[j - 1];
                     j--;
                 }
-                tablica[j] = temp;
+                tab[j] = temp;
             }
+
         }
 
         static void PrzezWybieranie(int[] tablica)
@@ -144,17 +171,17 @@ namespace Projekt_3
 
 
 
+
         static void Main(string[] args)
         {
             stoperek.Restart();
             stoperek.Start();
             for (int i = 50_000; i <= 200_000; i += 5_000)
             {
-                PrzezWstawianie(Malejaco(i));
+                Koktajlowe(Vshaped(i));
                 Console.WriteLine($"{i};{stoperek.ElapsedMilliseconds}");
             }
             stoperek.Stop();
-            Console.ReadKey();
         }
     }
 }

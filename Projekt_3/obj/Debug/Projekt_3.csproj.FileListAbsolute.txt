@@ -5,3 +5,10 @@ C:\Users\jancz\Desktop\Algorytmy tak o\Projekt_3\Projekt_3\obj\Debug\Projekt_3.c
 C:\Users\jancz\Desktop\Algorytmy tak o\Projekt_3\Projekt_3\obj\Debug\Projekt_3.csproj.CoreCompileInputs.cache
 C:\Users\jancz\Desktop\Algorytmy tak o\Projekt_3\Projekt_3\obj\Debug\Projekt_3.exe
 C:\Users\jancz\Desktop\Algorytmy tak o\Projekt_3\Projekt_3\obj\Debug\Projekt_3.pdb
+C:\Users\jancz\Documents\GitHub\Projekt_3\Projekt_3\bin\Debug\Projekt_3.exe.config
+C:\Users\jancz\Documents\GitHub\Projekt_3\Projekt_3\bin\Debug\Projekt_3.exe
+C:\Users\jancz\Documents\GitHub\Projekt_3\Projekt_3\bin\Debug\Projekt_3.pdb
+C:\Users\jancz\Documents\GitHub\Projekt_3\Projekt_3\obj\Debug\Projekt_3.csprojAssemblyReference.cache
+C:\Users\jancz\Documents\GitHub\Projekt_3\Projekt_3\obj\Debug\Projekt_3.csproj.CoreCompileInputs.cache
+C:\Users\jancz\Documents\GitHub\Projekt_3\Projekt_3\obj\Debug\Projekt_3.exe
+C:\Users\jancz\Documents\GitHub\Projekt_3\Projekt_3\obj\Debug\Projekt_3.pdb
